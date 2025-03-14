@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        a {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<h1>Editar Libro</h1><br/><br/>
+<p>Ingrese el ID del libro a modificar, luego puede cambiar su título, autor o link de acceso</p>
+<form action="#" th:action="@{/editBook}" method="post">
+    <p>ID del Libro: <input type="text" name="id" /></p>
+    <p>Nuevo Título: <input type="text" name="title" /></p>
+    <p>Nuevo Autor: <input type="text" name="author" /></p>
+    <p>Nuevo Enlace (opcional): <input type="text" name="link" /></p>
+    <p><input type="submit" value="Actualizar" /></p>
+</form>
+<a href="/">Volver atrás</a>
+</body>
+</html>

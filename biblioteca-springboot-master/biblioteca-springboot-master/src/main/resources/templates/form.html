@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #34495e;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #2980b9;
+        }
+        a {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<h1>Formulario para creación de un nuevo libro</h1><br/><br/>
+<p>Ingrese el título y el autor de la obra que quiere agregar a la base de datos. El link de acceso a la BVMC u otra es opcional.</p>
+<form action="#" th:action="@{/createBook}" th:object="${book}" method="post">
+    <p>Título: <input type="text" th:field="*{title}" /></p>
+    <p>Autor: <input type="text" th:field="*{author}" /></p>
+    <p>Enlace (opcional): <input type="text" th:field="*{link}" /></p>
+    <p><input type="submit" value="Crear" /> <input type="reset" value="Reset" /></p>
+</form>
+<a href="/">Volver atrás</a>
+</body>
+</html>

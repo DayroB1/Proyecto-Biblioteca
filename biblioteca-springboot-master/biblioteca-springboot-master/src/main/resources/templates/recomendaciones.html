@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-size: 1.1em;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        a {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+        .link-cell a {
+            padding: 5px 10px;
+            font-size: 0.8em;
+            margin: 0;
+            background-color: #3498db;
+            color: white;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        .link-cell a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<h1>Libros Recomendados</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Puntuación</th>
+        <th>Enlace</th>
+    </tr>
+    <tr th:each="entry : ${librosConPuntuacion}">
+        <td th:text="${entry.key.id}">id</td>
+        <td th:text="${entry.key.title}">titulo</td>
+        <td th:text="${entry.key.author}">autor</td>
+        <td th:text="${entry.value}">puntuación</td>
+        <td class="link-cell">
+            <a th:if="${entry.key.link}" th:href="${entry.key.link}" th:text="Leer"></a>
+            <span th:unless="${entry.key.link}">Vacío</span>
+        </td>
+    </tr>
+</table>
+<a href="/">Volver atrás</a>
+</body>
+</html>

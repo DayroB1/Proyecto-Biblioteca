@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca - Inicio</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Mensaje de bienvenida */
+        .welcome-message {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* Grid de botones */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Estilos de los botones */
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-5px);
+        }
+
+        /* Estilo específico para el botón de Wikidata */
+        .button-wikidata {
+            background-color: #e67e22;
+        }
+
+        .button-wikidata:hover {
+            background-color: #d35400;
+        }
+
+        /* Estilo específico para el botón de PDF */
+        .button-pdf {
+            background-color: #27ae60;
+        }
+
+        .button-pdf:hover {
+            background-color: #219653;
+        }
+
+        /* Pie de página */
+        footer {
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+<!-- Contenedor principal -->
+<div class="container">
+    <p class="welcome-message" th:text="${mensaje}"></p>
+
+    <div class="button-grid">
+        <a href="/books" class="button">Mostrar listado de libros</a>
+        <a href="/createBook" class="button">Crear libro</a>
+        <a href="/searchBook" class="button">Buscar libro</a>
+        <a href="/deleteBook" class="button">Eliminar libro</a>
+        <a href="/editBook" class="button">Editar libro</a>
+        <a href="/agregar" class="button">Agregar reseña</a>
+        <a href="/recomendaciones" class="button">Ver recomendaciones</a>
+        <a href="/api/pdfreport" class="button button-pdf">Generar PDF</a>
+        <a href="/authorsbvmc" class="button button-wikidata">Wikidata Call</a>
+    </div>
+    <footer>
+        Biblioteca en Spring Boot
+    </footer>
+</div>
+</body>
+</html>

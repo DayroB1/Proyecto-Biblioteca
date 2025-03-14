@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #e74c3c;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<h1>Resultado de la Eliminación</h1>
+<p th:text="${result}"></p>
+<a href="/">Volver atrás</a>
+<a href="/deleteBook">Eliminar otro libro</a>
+</body>
+</html>

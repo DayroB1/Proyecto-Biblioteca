@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        li {
+            background-color: #ffffff;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .autor-info {
+            margin-bottom: 10px;
+        }
+        .autor-info span {
+            display: block;
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #34495e;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        a {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<h1>Autores de Wikidata</h1><br/><br/>
+<p>Estos son los resultados obtenidos del WikidataService implementado, donde se obtiene un listado de autores relacionados con la BVMC y que sean mujeres escritoras.</p>
+<ul>
+    <li th:each="autor : ${autores}">
+        <div class="autor-info">
+            <span><strong>Nombre:</strong> <span th:text="${autor.autorLabel}">Nombre del autor</span></span>
+            <span><strong>Fecha de nacimiento:</strong> <span th:text="${autor.fechaNacimiento}">Desconocida</span></span>
+            <span><strong>Lugar de nacimiento:</strong> <span th:text="${autor.lugarNacimiento}">Desconocido</span></span>
+        </div>
+    </li>
+</ul>
+<a href="/">Volver atrás</a>
+</body>
+</html>
